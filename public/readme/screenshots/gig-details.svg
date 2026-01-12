@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Gig Details screenshot placeholder">
+  <defs>
+    <style>
+      .bg{fill:#0b1220}
+      .panel{fill:#111827;stroke:#374151;stroke-width:2}
+      .title{fill:#e5e7eb;font:800 34px ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
+      .muted{fill:#9ca3af;font:500 16px ui-sans-serif,system-ui}
+      .card{fill:#0f172a;stroke:#334155;stroke-width:2}
+      .h{fill:#e5e7eb;font:700 18px ui-sans-serif,system-ui}
+      .b{fill:#94a3b8;font:500 14px ui-sans-serif,system-ui}
+      .chip{fill:#22c55e;opacity:0.18}
+      .chipText{fill:#bbf7d0;font:700 12px ui-sans-serif,system-ui}
+      .btn{fill:#22c55e}
+      .btnText{fill:#0b1220;font:800 14px ui-sans-serif,system-ui}
+    </style>
+  </defs>
+
+  <rect width="1200" height="675" class="bg"/>
+  <rect x="60" y="52" width="1080" height="571" rx="18" class="panel"/>
+
+  <text x="100" y="120" class="title">Gig Details</text>
+  <text x="100" y="152" class="muted">View description, budget, and submit bids</text>
+
+  <rect x="100" y="185" width="86" height="28" rx="10" class="chip"/>
+  <text x="118" y="205" class="chipText">OPEN</text>
+
+  <rect x="100" y="235" width="680" height="270" rx="16" class="card"/>
+  <text x="122" y="275" class="h">Build a landing page</text>
+  <text x="122" y="305" class="b">Budget: $500 • Posted 2 days ago</text>
+  <text x="122" y="355" class="b">Description</text>
+  <text x="122" y="380" class="b">Create a responsive landing page with sections, CTA,</text>
+  <text x="122" y="402" class="b">and basic animations. Deliver clean components.</text>
+
+  <rect x="820" y="235" width="320" height="270" rx="16" class="card"/>
+  <text x="842" y="275" class="h">Submit Your Bid</text>
+  <text x="842" y="310" class="b">Proposal</text>
+  <rect x="842" y="322" width="276" height="80" rx="12" class="panel" opacity="0.55"/>
+  <text x="842" y="430" class="b">Price</text>
+  <rect x="842" y="442" width="276" height="40" rx="12" class="panel" opacity="0.55"/>
+  <rect x="842" y="494" width="276" height="44" rx="12" class="btn"/>
+  <text x="910" y="522" class="btnText">Submit Bid</text>
+
+  <text x="100" y="610" class="muted">Replace with a real screenshot later: public/readme/screenshots/gig-details.png</text>
+</svg>

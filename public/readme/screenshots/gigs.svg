@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Browse Gigs screenshot placeholder">
+  <defs>
+    <style>
+      .bg{fill:#0b1220}
+      .panel{fill:#111827;stroke:#374151;stroke-width:2}
+      .muted{fill:#9ca3af;font:500 16px ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
+      .title{fill:#e5e7eb;font:800 36px ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
+      .chip{fill:#0f172a;stroke:#334155;stroke-width:2}
+      .chipText{fill:#e5e7eb;font:600 14px ui-sans-serif,system-ui}
+      .card{fill:#0f172a;stroke:#334155;stroke-width:2}
+      .cardTitle{fill:#e5e7eb;font:700 18px ui-sans-serif,system-ui}
+      .cardBody{fill:#94a3b8;font:500 14px ui-sans-serif,system-ui}
+      .accent{fill:#22c55e}
+    </style>
+  </defs>
+  <rect width="1200" height="675" class="bg"/>
+  <rect x="60" y="52" width="1080" height="571" rx="18" class="panel"/>
+
+  <text x="100" y="125" class="title">Browse Gigs</text>
+  <text x="100" y="158" class="muted">Search open opportunities and view details</text>
+
+  <rect x="100" y="190" width="520" height="46" rx="14" class="chip"/>
+  <text x="120" y="220" class="chipText">Search gigs…</text>
+  <circle cx="600" cy="213" r="7" class="accent" opacity="0.8"/>
+
+  <g transform="translate(100,270)">
+    <rect x="0" y="0" width="320" height="150" rx="16" class="card"/>
+    <text x="18" y="40" class="cardTitle">Build a landing page</text>
+    <text x="18" y="70" class="cardBody">Responsive layout, fast load, SEO</text>
+    <text x="18" y="120" class="cardBody">Budget: $500 • Status: open</text>
+
+    <rect x="360" y="0" width="320" height="150" rx="16" class="card"/>
+    <text x="378" y="40" class="cardTitle">Design a logo kit</text>
+    <text x="378" y="70" class="cardBody">Brand mark + social variants</text>
+    <text x="378" y="120" class="cardBody">Budget: $250 • Status: open</text>
+
+    <rect x="720" y="0" width="320" height="150" rx="16" class="card"/>
+    <text x="738" y="40" class="cardTitle">Fix UI bugs</text>
+    <text x="738" y="70" class="cardBody">Layout and form validation</text>
+    <text x="738" y="120" class="cardBody">Budget: $150 • Status: assigned</text>
+  </g>
+
+  <text x="100" y="610" class="muted">Replace with a real screenshot later: public/readme/screenshots/gigs.png</text>
+</svg>

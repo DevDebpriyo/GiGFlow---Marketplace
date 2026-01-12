@@ -1,73 +1,213 @@
-# Welcome to your Lovable project
+# GigFlow Marketplace
 
-## Project info
+![GigFlow Marketplace](public/readme/banner.svg)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A modern gig marketplace where clients post gigs, freelancers submit bids, and clients hire the best match.
 
-## How can I edit this code?
+**Frontend:** Vite + React + TypeScript + shadcn/ui + Tailwind  
+**Backend:** Express + MongoDB (Mongoose) + Cookie-based JWT auth  
+**Status:** Local dev ready
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Table of contents
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- [Preview](#preview)
+- [Features](#features)
+- [Tech stack](#tech-stack)
+- [Architecture](#architecture)
+- [Getting started](#getting-started)
+- [Environment variables](#environment-variables)
+- [Scripts](#scripts)
+- [API overview](#api-overview)
+- [Project structure](#project-structure)
+- [Notes](#notes)
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Preview
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+> These are lightweight SVG placeholders so the README looks good out-of-the-box.
+> Replace them with real screenshots whenever you’re ready.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+![Browse gigs](public/readme/screenshots/gigs.svg)
 
-Follow these steps:
+![Gig details](public/readme/screenshots/gig-details.svg)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+![Auth](public/readme/screenshots/auth.svg)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Features
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- **Authentication**: Register, login, logout, and session check (`/auth/me`)
+- **Gigs**: Browse, search, view details, and create gigs
+- **Bids**: Submit bids to gigs; gig owners can hire a bidder
+- **Status flows**:
+	- Gigs are **open** or **assigned**
+	- Bids are **pending**, **hired**, or **rejected**
+
+---
+
+## Tech stack
+
+**Frontend**
+
+- Vite + React + TypeScript
+- Redux Toolkit for state
+- axios for API calls
+- shadcn/ui + Tailwind CSS for UI
+
+**Backend**
+
+- Express (Node.js)
+- MongoDB + Mongoose
+- JWT auth stored in an **HttpOnly cookie**
+- CORS enabled to accept requests from all origins (dev-friendly)
+
+---
+
+## Architecture
+
+![Architecture](public/readme/architecture.svg)
+
+**How it works (high level):**
+
+1. The frontend calls the backend API with `axios`.
+2. Auth uses an HttpOnly cookie (`token`) so the browser automatically sends it.
+3. The backend persists users/gigs/bids in MongoDB.
+
+---
+
+## Getting started
+
+### Prerequisites
+
+- Node.js (LTS recommended)
+- npm
+- A MongoDB database (Atlas or local)
+
+### 1) Install frontend deps
+
+```bash
+npm install
+```
+
+### 2) Install backend deps
+
+```bash
+npm install --prefix server
+```
+
+### 3) Configure environment
+
+Create your env files (do not commit secrets):
+
+- Frontend: copy [.env.example](.env.example) to `.env.local`
+- Backend: copy [server/.env.example](server/.env.example) to `server/.env`
+
+### 4) Run backend
+
+```bash
+npm run server:dev
+```
+
+Backend runs on `http://localhost:5000` and exposes `http://localhost:5000/api/*`.
+
+### 5) Run frontend
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Frontend runs on `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Environment variables
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Frontend (Vite)
 
-## What technologies are used for this project?
+File: `.env.local`
 
-This project is built with:
+- `VITE_API_URL` (optional)
+	- Default: `http://localhost:5000/api`
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Backend (Express)
 
-## How can I deploy this project?
+File: `server/.env`
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- `MONGODB_URI` (required)
+	- Your MongoDB connection string
+- `JWT_SECRET` (required)
+	- Any long random string used to sign tokens
+- `PORT` (optional)
+	- Default: `5000`
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## Scripts
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Frontend
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `npm run dev` — start Vite dev server
+- `npm run build` — production build
+- `npm run preview` — preview production build
+
+### Backend
+
+- `npm run server:dev` — start backend with nodemon
+- `npm run server:start` — start backend (node)
+
+---
+
+## API overview
+
+Base URL: `http://localhost:5000/api`
+
+### Auth
+
+- `POST /auth/register`
+- `POST /auth/login`
+- `POST /auth/logout`
+- `GET /auth/me`
+
+### Gigs
+
+- `GET /gigs?search=...`
+- `GET /gigs/:id`
+- `POST /gigs` (requires auth)
+
+### Bids
+
+- `GET /bids/:gigId`
+- `POST /bids` (requires auth)
+- `PATCH /bids/:bidId/hire` (requires auth; gig owner only)
+
+---
+
+## Project structure
+
+```text
+src/
+	components/        UI components (gigs, bids, auth, layout)
+	lib/api.ts         axios client + API wrappers
+	pages/             route-level pages
+	store/             Redux store + slices
+	types/             shared TypeScript types
+
+server/
+	src/
+		routes/          Express routes (auth, gigs, bids)
+		models/          Mongoose models (User, Gig, Bid)
+		middleware/      auth middleware
+		index.js         server bootstrap (CORS, cookie parser, routes)
+```
+
+---
+
+## Notes
+
+- **CORS is currently open for development.** The server is configured to accept requests from all origins while still supporting cookies.
+- If you plan to deploy, tighten CORS (explicit allowlist), set cookies to `secure: true`, and consider `sameSite` based on your domain setup.
+
