@@ -27,14 +27,12 @@ A modern gig marketplace where clients post gigs, freelancers submit bids, and c
 
 ## Preview
 
-> These are lightweight SVG placeholders so the README looks good out-of-the-box.
-> Replace them with real screenshots whenever you’re ready.
 
-![Browse gigs](public/readme/screenshots/gigs.svg)
+![Browse gigs](public/readme/screenshots/gigs.png)
 
-![Gig details](public/readme/screenshots/gig-details.svg)
+![Gig details](public/readme/screenshots/gig-details.png)
 
-![Auth](public/readme/screenshots/auth.svg)
+![Auth](public/readme/screenshots/auth.png)
 
 ---
 
@@ -68,8 +66,6 @@ A modern gig marketplace where clients post gigs, freelancers submit bids, and c
 ---
 
 ## Architecture
-
-![Architecture](public/readme/architecture.svg)
 
 **How it works (high level):**
 
